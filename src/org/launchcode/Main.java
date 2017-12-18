@@ -1,9 +1,6 @@
 package org.launchcode;
 
-import org.launchcode.comparators.AreaComparator;
-import org.launchcode.comparators.NameComparator;
-import org.launchcode.comparators.PopulationComparator;
-import org.launchcode.comparators.StateComparator;
+import org.launchcode.comparators.*;
 
 import java.util.ArrayList;
 
@@ -37,6 +34,14 @@ public class Main {
         AreaComparator comparator3 = new AreaComparator();
         cities.sort(comparator3);
 
+        printCities(cities);
+
+        // sort by multiple factors;
+        CompoundComparator comparator4 = new CompoundComparator();
+        comparator4.add(new StateComparator());
+        comparator4.add(new PopulationComparator());
+
+        cities.sort(comparator4);
         printCities(cities);
     }
 
